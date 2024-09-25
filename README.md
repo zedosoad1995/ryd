@@ -6,6 +6,13 @@ To install run:
 npm i
 ```
 
+You need to init the DB with:
+
+```bash
+npx prisma migrate dev
+npx prisma generate
+```
+
 To start dev run:
 
 ```bash

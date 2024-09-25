@@ -1,0 +1,14 @@
+Unfortunately I did not finish all endpoint.
+Instead focused on making some of the main endpoints work.
+
+Here is what I did:
+-Added CRUD for station
+-Added Way to edit opening hours
+-Added CRUD for the products (the fuel products)
+-Added CRUD for the pump
+
+What is missing:
+-CRUD For Station Products.
+    -Creating the Station product and associating it to a station and product
+    -Updating its price in different currencies
+    -Associating the Station product to a pump
