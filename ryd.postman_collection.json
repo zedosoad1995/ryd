@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "6c382c9e-41b3-424e-b008-87f52615cb92",
+		"name": "ryd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13569463"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Super fuel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create station",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"Lisbon\",\r\n    \"country\": \"Portugal\",\r\n    \"houseNumber\": \"1\",\r\n    \"status\": \"OFFLINE\",\r\n    \"street\": \"street\",\r\n    \"zipCode\": \"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/stations",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"stations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get stations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\": \"Lisbon\",\r\n    \"country\": \"Portugal\",\r\n    \"houseNumber\": \"1\",\r\n    \"status\": \"OFFLINE\",\r\n    \"street\": \"street\",\r\n    \"zipCode\": \"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/stations",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"stations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Opening Hours",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isOpenOnHolidays\": true,\r\n    \"openingHours\": [\r\n        {\r\n            \"dayOfWeek\": \"MONDAY\",\r\n            \"openTime\": \"08:00\",\r\n            \"closeTime\": \"18:00\"\r\n        },\r\n        {\r\n            \"dayOfWeek\": \"FRIDAY\",\r\n            \"openTime\": \"07:00\",\r\n            \"closeTime\": \"18:00\"\r\n        }\r\n    ]   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/stations/ec2da8d6-7732-4f60-b24b-75daf9a2ac4b/opening-hours",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"stations",
+						"ec2da8d6-7732-4f60-b24b-75daf9a2ac4b",
+						"opening-hours"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create pump",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"pump1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/stations/ec2da8d6-7732-4f60-b24b-75daf9a2ac4b/pumps",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"stations",
+						"ec2da8d6-7732-4f60-b24b-75daf9a2ac4b",
+						"pumps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Super fuel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
