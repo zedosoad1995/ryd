@@ -1,0 +1,1 @@
+docker-compose --file="dockers/docker-compose-postgres.yml" -p ryd up -d

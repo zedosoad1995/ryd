@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Station {
+  id               String           @id @default(uuid())
+  status           Status
+  country          String
+  zipCode          String
+  city             String
+  street           String
+  houseNumber      String
+  openingHours     OpeningHour[]
+  isOpenOnHolidays Boolean
+  pumps            Pump[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  StationProduct   StationProduct[]
+}
+
+enum Status {
+  ONLINE
+  OFFLINE
+}
+
+model OpeningHour {
+  id        String    @id @default(uuid())
+  dayOfWeek DayOfWeek
+  openTime  String
+  closeTime String
+  stationId String
+  station   Station   @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+model Pump {
+  id             String           @id @default(uuid())
+  name           String
+  stationId      String
+  station        Station          @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  StationProduct StationProduct[]
+}
+
+model StationProduct {
+  id        String   @id @default(uuid())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  station   Station  @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  productId String
+  Price     Price[]
+  Pump      Pump[]
+  stationId String
+}
+
+model Product {
+  id             String           @id @default(uuid())
+  name           String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  StationProduct StationProduct[]
+}
+
+model Price {
+  id            String         @id @default(uuid())
+  price         Float
+  currency      String
+  pumpProduct   StationProduct @relation(fields: [pumpProductId], references: [id], onDelete: Cascade)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  pumpProductId String
+}
