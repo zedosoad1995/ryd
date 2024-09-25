@@ -1,5 +1,5 @@
-Unfortunately I did not finish all endpoint.
-Instead focused on making some of the main endpoints work.
+Unfortunately, I did not finish all endpoints.
+Instead, focused on making some of the main endpoints work.
 
 Here is what I did:
 -Added CRUD for station
